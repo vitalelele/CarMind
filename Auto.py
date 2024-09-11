@@ -26,7 +26,10 @@ class Auto:
 
         if giorni_bollo < 0:
             descrizioni.append(f"Bollo scaduto il {self.scadenza_bollo}.")
-        elif giorni_bollo <= 15:
+        elif giorni_bollo == 0:
+            descrizioni.append(f"Oggi è il giorno della scadenza del bollo. URGENTE rinnovare!")
+            notifiche.append(("Bollo", giorni_bollo, self.scadenza_bollo))
+        elif giorni_bollo <= 15 and giorni_bollo > 0:  # Modifica qui: Solo se giorni_bollo > 0
             descrizioni.append(f"Bollo valido fino al {self.scadenza_bollo}. Mancano {giorni_bollo} giorni.")
             notifiche.append(("Bollo", giorni_bollo, self.scadenza_bollo))
 
@@ -36,7 +39,10 @@ class Auto:
 
         if giorni_assicurazione < 0:
             descrizioni.append(f"Assicurazione scaduta il {self.scadenza_assicurazione}.")
-        elif giorni_assicurazione <= 15:
+        elif giorni_assicurazione == 0:
+            descrizioni.append(f"Oggi è il giorno della scadenza dell'assicurazione. URGENTE rinnovare!")
+            notifiche.append(("Assicurazione", giorni_assicurazione, self.scadenza_assicurazione))
+        elif giorni_assicurazione <= 15 and giorni_assicurazione > 0:  # Modifica qui: Solo se giorni_assicurazione > 0
             descrizioni.append(f"Assicurazione valida fino al {self.scadenza_assicurazione}. Mancano {giorni_assicurazione} giorni.")
             notifiche.append(("Assicurazione", giorni_assicurazione, self.scadenza_assicurazione))
 
@@ -46,7 +52,10 @@ class Auto:
 
         if giorni_revisione < 0:
             descrizioni.append(f"Revisione scaduta il {self.scadenza_revisione}.")
-        elif giorni_revisione <= 15:
+        elif giorni_revisione == 0:
+            descrizioni.append(f"Oggi è il giorno della scadenza della revisione. URGENTE rinnovare!")
+            notifiche.append(("Revisione", giorni_revisione, self.scadenza_revisione))
+        elif giorni_revisione <= 15 and giorni_revisione > 0:  # Modifica qui: Solo se giorni_revisione > 0
             descrizioni.append(f"Revisione valida fino al {self.scadenza_revisione}. Mancano {giorni_revisione} giorni.")
             notifiche.append(("Revisione", giorni_revisione, self.scadenza_revisione))
 
